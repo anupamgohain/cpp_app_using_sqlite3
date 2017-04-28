@@ -5,18 +5,6 @@ This is a small application comprising of batch, shell and C++(using Sqlite) pro
 
 Batch -> Shell -> C++ -> Sqlite
 
-Source Code
------------
-The source code can be found in below given locations
-SVN: https://tfsint.corp.castsoftware.com/svn/QA/trunk/Full_Stack_C++_Implementation
-TFS: http://tfsqa:8080/Mytfs/CT/QA/_versionControl#path=%24%2FQA%2FFull+Stack+C%2B%2B+Implementation&_a=contents
-
-Architecture
-------------
-The architecture of the program is shown in the below picture.
-
-cpp_application_sqlite3_architecture.PNG
-
 Code Explanation
 ----------------
 The entry point of the application is the batch program "capp_sqlite3.bat".
