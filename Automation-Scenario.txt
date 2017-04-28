@@ -1,0 +1,77 @@
+24.01.2017 14:59:04
+//E2E/TODO/full_project_automated_test test executed on 
+	PC	sarkola
+	OS	Microsoft Windows [Version 6.1.7601] amd64 ISO-8859-1
+	RDBMS	PG92
+	AIP	8.2.0.1375 64 bit
+To reproduce this test, either execute manually below steps, either configure and run provided batch. See https://confluence.castsoftware.com/x/EgCtHg
+
+1. Reset Platform 8.2.0.1375
+Drop schemas / Restore dumps obtained after fresh installation
+Empty folders : LISA / LTSA / Delivery / Deployment / Extension Folder / Blackbox Folder
+
+2. Deploy Extension com.castsoftware.shell 1.0.5.0 from https://extend.castsoftware.com:443/product
+
+3. Deploy Extension com.castsoftware.sqlanalyzer 1.0.0.beta4 from https://extend.castsoftware.com:443/product
+
+4. Deploy Extension com.castsoftware.cfamily 1.0.0.funcrel from https://extend.castsoftware.com:443/product
+
+5. Install Extensions on triplet
+
+6. Add Application / Version
+	Application name	full_project_automated_test
+	Version	V1
+
+7. Add / Update Package to full_project_automated_test/V1
+	type	fileSystemPackage
+	name	Sources
+Configuration
+	folderPath	V:\STD\c\VC2012\FullStackC++Implementation\cpp_app_using_sqlite3
+
+8. Pack and Deliver full_project_automated_test/V1with force extraction = DEFAULT
+
+9. Deliver full_project_automated_test/V1
+
+10. Accept Delivery of full_project_automated_test/V1
+
+11. Set 'V1' as current version of full_project_automated_test
+
+12. Add / Configure Analysis Unit of full_project_automated_test
+In package Sources
+	type	cppAnalysis
+	name	CPPSource
+Configuration
+	cppSourceFolder	C:\tmp\DEPLOY\full_project_automated_test\Sources
+	analyzerToInvoke	clang
+	EnableCastILGeneration	true
+
+13. Add / Configure Analysis Unit of full_project_automated_test
+In package Sources
+	type	universalAnalysis
+	name	SHELLSource
+Configuration
+	sourceFolder	C:\tmp\DEPLOY\full_project_automated_test\Sources
+
+14. Add / Configure Analysis Unit of full_project_automated_test
+In package Sources
+	type	universalAnalysis
+	name	SQLSource
+Configuration
+	language	SQL Analyzer
+	sourceFolder	C:\tmp\DEPLOY\full_project_automated_test\Sources
+
+15. Remove all dependencies of application full_project_automated_test
+
+16. Add Dependency to application full_project_automated_test
+	Source (package / analysis Unit)	Sources/CPPSource
+	Target (package / analysis Unit)	Sources/CPPSource
+
+17. Add Dependency to application full_project_automated_test
+	Source (package / analysis Unit)	Sources/CPPSource
+	Target (package / analysis Unit)	Sources/SQLSource
+
+18. Add Dependency to application full_project_automated_test
+	Source (package / analysis Unit)	Sources/SHELLSource
+	Target (package / analysis Unit)	Sources/CPPSource
+
+19. Take Snapshot of full_project_automated_test
