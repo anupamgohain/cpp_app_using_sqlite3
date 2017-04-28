@@ -10,9 +10,11 @@ Code Explanation
 The entry point of the application is the batch program "capp_sqlite3.bat".
 
 Batch Program
+
 This batch program first looks for linux like environment which is necessary to run the shell programs (like Cygwin installed). Once the linux environment is found, the batch program asks for input from the user and according to the input given by the user calls the shell programs.
 
 Shell Programs
+
 As the name of the shell programs explains the work done by the shell programs, the shell programs basically calls the C++ programs.
 
 showList.sh ---> showList.cpp
@@ -28,6 +30,7 @@ toggleList.sh ---> toggleList.cpp
 clearList.sh ---> clearList.cpp
 
 C++(using Sqlite) Programs
+
 Similarly, the C++ programs explains the work done by the C++ programs, the C++ programs basically do the CRUD transactions to sqlite3 database.
 
 showList.cpp ---> If the database exist, displays the TODO LIST by reading from the Sqlite Database.
